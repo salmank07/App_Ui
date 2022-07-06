@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AnimationController } from '@ionic/angular';
+
 
 @Component({
   selector: 'app-login',
@@ -7,9 +9,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginPage implements OnInit {
 
-  constructor() { }
+  constructor() {}
+
 
   ngOnInit() {
   }
-
 }
