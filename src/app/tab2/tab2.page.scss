@@ -1,0 +1,79 @@
+ion-chip {
+    position: relative;
+    height: 60px;
+    --background: hsl(216, 12%, 94%);
+}
+
+ion-card {
+    border-radius: 20px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+}
+
+ion-icon {
+    position: relative;
+    font-size: 30px;
+    margin: 8px 6px;
+    color: #F7C766;
+}
+
+ion-content {
+    --background: #ECF1FF;
+}
+
+ion-progress-bar {
+    display: table-cell;
+    height: 10px;
+    border-radius: 20px;
+    --background: #ECF1FF;
+    --progress-background: #FE9F17;
+}
+
+.wrap {
+    margin-top: 1.5rem;
+    display: table;
+    border-collapse: separate;
+    border-spacing: 0 10px;
+}
+
+.prog {
+    display: table-row;
+    align-items: center;
+    justify-content: center;
+}
+
+.chipWrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+p {
+    display: table-cell;
+    text-align: right;
+    white-space: nowrap;
+    // color: #748DDF;
+}
+
+round-progress {
+    height: 60px !important;
+    width: 60px !important;
+    margin: 6px 6px;
+}
+
+.progWrap {
+    position: relative;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+
+.current {
+    top: 50%;
+    bottom: auto;
+    left: 50%;
+    transform: translateY(-50%) translateX(-50%);
+    position: absolute;
+    color: #000;
+    font-weight: 100;
+    line-height: 1;
+}
