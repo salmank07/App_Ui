@@ -1,0 +1,106 @@
+.main {
+    background: url(../../assets/images/25.png) no-repeat center center fixed;
+
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+h1 {
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-bottom: 0;
+}
+
+h5 {
+    margin-top: 5px;
+    letter-spacing: 1px;
+}
+
+h3 {
+    font-weight: 600;
+    letter-spacing: 1px;
+    padding-left: 10px;
+}
+
+ion-modal {
+    --height: 100%;
+    --border-radius: 40px;
+    --background: transparent;
+    --box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;
+}
+
+ion-item {
+    padding: 5px 0;
+    --border-width: 0;
+    --border-radius: 16px;
+    --box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+ion-button {
+    --border-radius: 20px;
+    --box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    // --background: #F3C4BD;
+    --background: #F47C7C;
+    --padding-top: 22px;
+    --padding-bottom: 22px;
+}
+
+ion-content {
+    // --background: rgba(255, 255, 255, 0.25);
+    // box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    // --backdrop-filter: blur(4px);
+    // -webkit-backdrop-filter: blur(3px);
+    // border-radius: 10px;
+    // border: 1px solid rgba(255, 255, 255, 0.18);
+
+
+    --backdrop-filter: blur(16px) saturate(184%);
+    -webkit-backdrop-filter: blur(16px) saturate(184%);
+    --background: rgba(255, 255, 255, 0.40);
+    border-radius: 12px;
+    border: 1px solid rgba(209, 213, 219, 0.3);
+    letter-spacing: 0.4px;
+}
+
+.wrap {
+    margin-top: .5rem;
+}
+
+// ion-input {
+//     --padding-bottom: 12px !important;
+//     --padding-start: 12px !important;
+// }
+
+ion-label {
+    // margin-top: -5px !important;
+    padding-left: 13px;
+}
+
+ion-thumbnail {
+    --size: 40px
+}
+
+p {
+    padding: 8px 0;
+}
+
+.bottom ion-button {
+    position: absolute;
+    bottom: 20%;
+}
+.content {
+    margin: auto;
+ 
+}
+@media (min-width: 500px) {
+    .content {
+        width: 500px;
+    }
+}
