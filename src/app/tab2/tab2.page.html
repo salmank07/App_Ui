@@ -1,17 +1,103 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Tab 2
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-content [fullscreen]="true" class="ion-padding">
+  <ion-card class="ion-padding">
+    <ion-card-header>
+      <ion-card-title style="text-align: center; font-weight: 600; ">Customer Reviews</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <div class="chipWrap">
+        <ion-chip>
+          <ion-icon name="star"></ion-icon>
+          <ion-icon name="star"></ion-icon>
+          <ion-icon name="star"></ion-icon>
+          <ion-icon name="star-half-outline"></ion-icon>
+          <ion-icon name="star-outline"></ion-icon>
+          <ion-label style="margin: 8px; white-space: nowrap;">3.5 out of 5</ion-label>
+        </ion-chip>
+      </div>
+      <h5 style="text-align: center;">40 customer review</h5>
+      <div class="wrap">
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 2</ion-title>
-    </ion-toolbar>
-  </ion-header>
+        <div class="prog">
+          <p style="padding-right: 10px; color: #748DDF;">5 star</p>
+          <ion-progress-bar value="0.84"></ion-progress-bar>
+          <p style="text-align: right; color: #3D3D54;">84%</p>
+        </div>
 
-  <app-explore-container name="Tab 2 page"></app-explore-container>
+        <div class="prog">
+          <p style="padding-right: 10px; color: #748DDF;">4 star</p>
+          <ion-progress-bar value="0.15"></ion-progress-bar>
+          <p style="padding-left: 10px; color: #3D3D54;">15%</p>
+        </div>
+
+        <div class="prog">
+          <p style="padding-right: 10px; color: #748DDF;">3 star</p>
+          <ion-progress-bar value="0.1"></ion-progress-bar>
+          <p style="padding-left: 10px; color: #3D3D54;">10%</p>
+        </div>
+
+        <div class="prog">
+          <p style="padding-right: 10px; color: #748DDF;">2 star</p>
+          <ion-progress-bar value="0.05"></ion-progress-bar>
+          <p style="padding-left: 10px; color: #3D3D54;"> 5%</p>
+        </div>
+
+        <div class="prog">
+          <p style="padding-right: 10px; color: #748DDF;">1 star</p>
+          <ion-progress-bar value="0.18"></ion-progress-bar>
+          <p style="padding-left: 10px; color: #3D3D54;">18%</p>
+        </div>
+      </div>
+      <div class="chipWrap" style="margin-top: 1rem;">
+        <div class="fortext">
+          <div class="progWrap">
+            <div class="current">3.5</div>
+            <round-progress [color]="'#2dd36f'" [background]="'#ECF1FF'" [current]="3.5" [max]="5" [radius]="125"
+              [stroke]="20" [rounded]="true" [clockwise]="false" [responsive]="false" [duration]="800"
+              [animation]="'easeInOutQuart'" [animationDelay]="0">
+            </round-progress>
+          </div>
+          <h5 style="text-align: center;">
+            Quality
+          </h5>
+        </div>
+        <div class="fortext">
+          <div class="progWrap">
+            <div class="current">2.5</div>
+            <round-progress [color]="'#2dd36f'" [background]="'#ECF1FF'" [current]="2.5" [max]="5" [radius]="125"
+              [stroke]="20" [rounded]="true" [clockwise]="false" [responsive]="false" [duration]="800"
+              [animation]="'easeInOutQuart'" [animationDelay]="0">
+            </round-progress>
+          </div>
+          <h5 style="text-align: center;">
+            Camera
+          </h5>
+        </div>
+        <div class="fortext">
+          <div class="progWrap">
+            <div class="current">4</div>
+            <round-progress [color]="'#2dd36f'" [background]="'#ECF1FF'" [current]="4" [max]="5" [radius]="125"
+              [stroke]="20" [rounded]="true" [clockwise]="false" [responsive]="false" [duration]="800"
+              [animation]="'easeInOutQuart'" [animationDelay]="0">
+            </round-progress>
+          </div>
+          <h5 style="text-align: center;">
+            Design
+          </h5>
+        </div>
+        <div class="fortext">
+          <div class="progWrap">
+            <div class="current">2</div>
+            <round-progress [color]="'#2dd36f'" [background]="'#ECF1FF'" [current]="2" [max]="5" [radius]="125"
+              [stroke]="20" [rounded]="true" [clockwise]="false" [responsive]="false" [duration]="800"
+              [animation]="'easeInOutQuart'" [animationDelay]="0">
+            </round-progress>
+          </div>
+          <h5 style="text-align: center;">
+            Bass
+          </h5>
+        </div>
+      </div>
+    </ion-card-content>
+  </ion-card>
+
 </ion-content>
