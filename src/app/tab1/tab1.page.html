@@ -1,24 +1,156 @@
-<ion-header [translucent]="true">
+<!-- <ion-header [translucent]="true">
     <ion-toolbar>
         <ion-title>
             <div class="ion-margin-top">
                 <ion-col class="navbar1">World Environment</ion-col>
             </div>
         </ion-title>
+        <ion-icon name="qr-code"></ion-icon>
     </ion-toolbar>
-    <div class="ion-margin-top">
-        <!-- <ion-col class="navbar">
-            <ion-icon name="reorder-three-outline"></ion-icon>
-        </ion-col> -->
-        <ion-col class="navbar">Fashion</ion-col>
-        <ion-col class="navbar">Electronics</ion-col>
-        <ion-col class="navbar">Books</ion-col>
-        <ion-col class="navbar">Mobiles</ion-col>
-        <ion-col class="navbar">Electronics</ion-col>
-        <ion-col class="navbar">Electronics</ion-col>
-        <ion-col class="navbar">Electronics</ion-col>
-    </div>
-</ion-header>
+</ion-header> -->
+
+<ion-toolbar>
+    <ion-buttons slot="secondary">
+        <ion-button (click)="startScan()">
+            <ion-icon color="light" slot="icon-only" name="qr-code"></ion-icon>
+        </ion-button>
+    </ion-buttons>
+    <ion-title>World Environment</ion-title>
+</ion-toolbar>
+
 <ion-content>
-    
+    <ion-item lines="none" style="margin: 0;">
+        <h2>Top Picks</h2>
+    </ion-item>
+    <ion-slides [options]="slideOpts">
+        <!-- <div class="slideWrap"> -->
+            <ion-slide>
+                <ion-img src="../../assets/images/30.jpg"></ion-img>
+            </ion-slide>
+            <!-- <h2>hello</h2>
+        </div> -->
+        <ion-slide>
+            <ion-img src="../../assets/images/31.jpg"></ion-img>
+        </ion-slide>
+        <ion-slide>
+            <ion-img src="../../assets/images/32.jpg"></ion-img>
+        </ion-slide>
+        <ion-slide>
+            <ion-img src="../../assets/images/33.jpg"></ion-img>
+        </ion-slide>
+    </ion-slides>
+
+    <ion-list>
+        <ion-item style="margin: 0;" lines="none" >
+            <h2 style="margin: 0;">Products</h2>
+        </ion-item>
+        <ion-item button (click)="move(item.productId)" lines="none" *ngFor="let item of product">
+            <ion-thumbnail slot="start">
+                <ion-img [src]="item.src"></ion-img>
+            </ion-thumbnail>
+            <ion-card-header>
+                <ion-card-title>{{ item.product }}</ion-card-title>
+                <ion-card-subtitle>
+                    <ion-icon name="star" style="color:#696b79;"></ion-icon>&nbsp;
+                    <span style="color:#696b79;">{{ item.rating }}</span>
+                    <span class="dot"></span>
+                    {{ item.category }}
+                </ion-card-subtitle>
+            </ion-card-header>
+        </ion-item>
+        <!-- <ion-item lines="none">
+            <ion-thumbnail slot="start">
+                <ion-img src="../../assets/images/p2.jpg"></ion-img>
+            </ion-thumbnail>
+            <ion-card-header>
+                <ion-card-title>Samsung s10+</ion-card-title>
+                <ion-card-subtitle>
+                    <ion-icon name="star" style="color:#696b79;"></ion-icon>&nbsp;
+                    <span style="color:#696b79;">3.4</span>
+                    <span class="dot"></span>
+                    Mobile
+                </ion-card-subtitle>
+            </ion-card-header>
+        </ion-item>
+        <ion-item lines="none">
+            <ion-thumbnail slot="start">
+                <ion-img src="../../assets/images/28 - Copy.jpg"></ion-img>
+            </ion-thumbnail>
+            <ion-card-header>
+                <ion-card-title>Nestle Maggi</ion-card-title>
+                <ion-card-subtitle>
+                    <ion-icon name="star" style="color:#696b79;"></ion-icon>&nbsp;
+                    <span style="color:#696b79;">2.0</span>
+                    <span class="dot"></span>
+                    Food
+                </ion-card-subtitle>
+            </ion-card-header>
+        </ion-item>
+        <ion-item lines="none">
+            <ion-thumbnail slot="start">
+                <ion-img src="../../assets/images/27.jpg"></ion-img>
+            </ion-thumbnail>
+            <ion-card-header>
+                <ion-card-title>Vittara Brezza</ion-card-title>
+                <ion-card-subtitle>
+                    <ion-icon name="star" style="color:#696b79;"></ion-icon>&nbsp;
+                    <span style="color:#696b79;">2.8</span>
+                    <span class="dot"></span>
+                    Automobile
+                </ion-card-subtitle>
+            </ion-card-header>
+        </ion-item> -->
+    </ion-list>
+
+
+
+
+<!-- for scanner -->
+
+
+<!-- Fallback for iOS PWA -->
+<input #fileinput type="file" accept="image/*;capture=camera" hidden (change)="handleFile($event)">
+
+ 
+<!-- Trigger the file input -->
+<ion-button expand="full" (click)="captureImage()">
+  <ion-icon slot="start" name="camera"></ion-icon>
+  Capture Image
+</ion-button>
+
+<ion-button expand="full" (click)="startScan()">
+  <ion-icon slot="start" name="qr-scanner"></ion-icon>
+  Start scan
+</ion-button>
+
+<ion-button expand="full" (click)="reset()" color="warning" *ngIf="scanResult">
+  <ion-icon slot="start" name="refresh"></ion-icon>
+  Reset
+</ion-button>
+
+<!-- Shows our camera stream -->
+<video #video [hidden]="!scanActive" width="100%"></video>
+
+<!-- Used to render the camera stream images -->
+<canvas #canvas hidden></canvas>
+
+<!-- Stop our scanner preview if active -->
+<ion-button expand="full" (click)="stopScan()" color="danger" *ngIf="scanActive">
+  <ion-icon slot="start" name="close"></ion-icon>
+  Stop scan
+</ion-button>
+
+<ion-card *ngIf="scanResult">
+  <ion-card-header>
+    <ion-card-title>QR Code</ion-card-title>
+  </ion-card-header>
+  <ion-card-content>
+    {{ scanResult }}
+  </ion-card-content>
+</ion-card>
+
+
+
+
+
 </ion-content>

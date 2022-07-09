@@ -1,53 +1,66 @@
 <ion-content class="main ion-padding">
   <div class="content">
-    <ion-text color="dark">
+    <ion-text>
       <h1>Hello Again!</h1>
-      <h5>Welcome back you've been missed!</h5>
+      <h6>Welcome back you've been missed!</h6>
     </ion-text>
     <div class="bottom">
       <ion-button id="open-modal1" expand="block" *ngIf="!ismodalClosed">
         Sign in
       </ion-button>
     </div>
-    <ion-modal #modal (willPresent)='ismodalClosed = !ismodalClosed' canDismiss="false"
-      show-backdrop="false" trigger="open-modal1" [initialBreakpoint]="0.75">
+    <ion-modal #modal (willPresent)='ismodalClosed = !ismodalClosed' canDismiss="false" show-backdrop="false"
+      trigger="open-modal1" [initialBreakpoint]="0.75">
       <ng-template>
 
         <ion-content class="mainContent modal-content ion-padding">
           
 
-          <ion-text color="dark">
-            <h3 style="text-align: center;">Sign in</h3>
-          </ion-text>
-
-          <div class="wrap">
+          <div class="wrap" style="margin-top: 2rem;">
             <ion-item lines="none">
-              <ion-label position="floating">Username</ion-label>
-              <ion-input type="text"></ion-input>
+              <!-- <ion-label  type="text" position="floating">Username</ion-label> -->
+              <ion-input placeholder="Username"></ion-input>
             </ion-item>
 
             <ion-item lines="none" style="margin-top: .3rem;">
-              <ion-label position="floating">Password</ion-label>
-              <ion-input type="password"></ion-input>
+              <!-- <ion-label position="floating">Password</ion-label> -->
+              <ion-input type="password" placeholder="Password"></ion-input>
             </ion-item>
-            <p style="font-size: 13px; text-align: right !important; padding-right: 10px; ">
+
+            <!-- <ion-item lines="none" style="--background: transparent;">
+            <ion-label style="text-align: right;">
+              Recover Password
+            </ion-label>
+          </ion-item> -->
+            <p
+              style="font-size: 13px; text-align: right !important; padding-right: 10px;color: #002328; font-weight: 800; ">
               Recover Password
             </p>
 
-            <ion-button style="margin-top: 1rem;" expand="block">Sign in</ion-button>
-            <p style="font-size: 13px; text-align: center !important; ">Or continue with</p>
+            <ion-button style="margin-top: 1rem;" expand="block"><b>Sign In</b></ion-button>
+            <p style="font-size: 13px; text-align: center !important;color: #002328;font-weight: 800; "><b>Or</b>
+              continue with</p>
             <div style="display: flex; align-items: center; justify-content: space-around;">
               <ion-thumbnail>
-                <img src="../../assets/images/fbicon.png">
+                <!-- <img src="../../assets/images/fbicon.png"> -->
+                <ion-icon name="logo-google"></ion-icon>
               </ion-thumbnail>
               <ion-thumbnail>
-                <img src="../../assets/images/appleicon.png">
+                <!-- <img src="../../assets/images/fbicon.png"> -->
+                <ion-icon name="logo-facebook"></ion-icon>
+              </ion-thumbnail>
+
+              <ion-thumbnail>
+                <!-- <img src="../../assets/images/appleicon.png"> -->
+                <ion-icon name="logo-github"></ion-icon>
               </ion-thumbnail>
               <ion-thumbnail>
-                <img src="../../assets/images/googleicon.png">
+                <!-- <img src="../../assets/images/googleicon.png"> -->
+                <ion-icon name="logo-apple"></ion-icon>
               </ion-thumbnail>
             </div>
-            <p style="font-size: 13px; text-align: center !important; ">Not a member? <a>Register Now</a></p>
+            <p style="font-size: 13px; text-align: center !important;color: #002328;font-weight: 800; ">Not a member?
+              &nbsp;&nbsp;<a style="font-weight: 700;color: #000708;">Register Now</a></p>
           </div>
         </ion-content>
       </ng-template>

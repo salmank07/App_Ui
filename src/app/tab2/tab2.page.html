@@ -1,5 +1,13 @@
+<ion-toolbar>
+  <ion-buttons slot="secondary">
+      <ion-button>
+          <ion-icon slot="icon-only" name="qr-code"></ion-icon>
+      </ion-button>
+  </ion-buttons>
+  <ion-title>World Environment</ion-title>
+</ion-toolbar>
 <ion-content [fullscreen]="true" class="ion-padding">
-  <ion-card class="ion-padding">
+  
     <ion-card-header>
       <ion-card-title style="text-align: center; font-weight: 600; ">Product Reviews</ion-card-title>
     </ion-card-header>
@@ -11,7 +19,7 @@
           <ion-icon name="star"></ion-icon>
           <ion-icon name="star-half-outline"></ion-icon>
           <ion-icon name="star-outline"></ion-icon>
-          <ion-label style="margin: 8px; white-space: nowrap;">3.5 out of 5</ion-label>
+          <ion-label style="margin: 8px; white-space: nowrap;">{{ gotit }} out of 5</ion-label>
         </ion-chip>
       </div>
       <!-- <h5 style="text-align: center;">40 customer review</h5> -->
@@ -98,6 +106,6 @@
         </div>
       </div>
     </ion-card-content>
-  </ion-card>
+  
 
 </ion-content>
