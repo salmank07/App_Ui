@@ -12,7 +12,9 @@
     <ion-modal #modal (willPresent)='ismodalClosed = !ismodalClosed' canDismiss="false" show-backdrop="false"
       trigger="open-modal1" [initialBreakpoint]="0.75">
       <ng-template>
-        <ion-content class="modal-content ion-padding">
+
+        <ion-content class="mainContent modal-content ion-padding">
+          
 
           <div class="wrap" style="margin-top: 2rem;">
             <ion-item lines="none">
@@ -63,6 +65,5 @@
         </ion-content>
       </ng-template>
     </ion-modal>
-
   </div>
 </ion-content>
