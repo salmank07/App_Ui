@@ -1,7 +1,7 @@
 ion-chip {
     position: relative;
     height: 60px;
-    --background: hsl(216, 12%, 94%);
+    --background: #fff;
 }
 
 ion-card {
@@ -24,7 +24,7 @@ ion-progress-bar {
     display: table-cell;
     height: 10px;
     border-radius: 20px;
-    --background: #ECF1FF;
+    --background: #fff;
     --progress-background: #FE9F17;
 }
 
@@ -77,3 +77,15 @@ round-progress {
     font-weight: 100;
     line-height: 1;
 }
+ion-toolbar {
+    --border-color: $primary-text-color;
+    --min-height: 60px;
+  }
+  ion-toolbar ion-icon {
+    color: #3d4152;
+  }
+  ion-title {
+    color: #3d4152;
+    font-weight: 700;
+    letter-spacing: -0.1px;
+  }

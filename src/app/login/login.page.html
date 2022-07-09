@@ -1,23 +1,19 @@
 <ion-content class="main ion-padding">
   <div class="content">
-    <ion-text color="dark">
+    <ion-text>
       <h1>Hello Again!</h1>
-      <h5>Welcome back you've been missed!</h5>
+      <h6>Welcome back you've been missed!</h6>
     </ion-text>
     <div class="bottom">
       <ion-button id="open-modal1" expand="block" *ngIf="!ismodalClosed">
         Sign in
       </ion-button>
     </div>
-    <ion-modal #modal (willPresent)='ismodalClosed = !ismodalClosed' canDismiss="false" show-backdrop="false" trigger="open-modal1"
-      [initialBreakpoint]="0.75">
+    <ion-modal #modal (willPresent)='ismodalClosed = !ismodalClosed' canDismiss="false" show-backdrop="false"
+      trigger="open-modal1" [initialBreakpoint]="0.75">
       <ng-template>
         <ion-content class="modal-content ion-padding">
-
-          <ion-text color="dark">
-            <h3 style="text-align: center;">Sign in</h3>
-          </ion-text>
-
+ 
           <div class="wrap">
             <ion-item lines="none">
               <ion-label position="floating">Username</ion-label>
