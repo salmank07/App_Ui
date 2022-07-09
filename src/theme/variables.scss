@@ -5,10 +5,20 @@
 @import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Great+Vibes&family=Noto+Sans:wght@700&family=Open+Sans:wght@300&family=Poppins&family=Roboto:wght@100&family=Teko:wght@600&display=swap");
 
 
+$primary-color:#4E6129;
+$secondary-color:#798959;
+$button-color:#ABBD72;
+$text-color:#0E1507;
+$lightbg1-color:#C3D8B3;
+$lightbg2-color:#B2D1A9;
+$lightbg3-color:#ABC0AA;
+$lightbg4-color:#E4ECE2;
+
+
 /** Ionic CSS Variables **/
 :root {
   /** primary **/
-  --ion-color-primary: #3880ff;
+  --ion-color-primary: #ABBD72;
   --ion-color-primary-rgb: 56, 128, 255;
   --ion-color-primary-contrast: #ffffff;
   --ion-color-primary-contrast-rgb: 255, 255, 255;
