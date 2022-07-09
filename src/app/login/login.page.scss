@@ -1,10 +1,9 @@
 .main {
-    background: url(../../assets/images/25.png) no-repeat center center fixed;
-
+    --background: url(../../assets/images/41.jpg) no-repeat center center fixed;
+    background: url(../../assets/images/30.jpg) no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     background-size: cover;
-
     display: flex;
     align-items: center;
     justify-content: center;
@@ -31,7 +30,7 @@ h3 {
 
 ion-modal {
     --height: 100%;
-    --border-radius: 40px;
+    --border-radius: 30px;
     --background: transparent;
     --box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;
 }
@@ -47,25 +46,16 @@ ion-button {
     --border-radius: 20px;
     --box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
     // --background: #F3C4BD;
-    --background: #F47C7C;
+    // --background: #F47C7C;
     --padding-top: 22px;
     --padding-bottom: 22px;
 }
 
-ion-content {
-    // --background: rgba(255, 255, 255, 0.25);
-    // box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-    // --backdrop-filter: blur(4px);
-    // -webkit-backdrop-filter: blur(3px);
-    // border-radius: 10px;
-    // border: 1px solid rgba(255, 255, 255, 0.18);
-
-
+.mainContent {
     --backdrop-filter: blur(16px) saturate(184%);
     -webkit-backdrop-filter: blur(16px) saturate(184%);
-    --background: rgba(255, 255, 255, 0.40);
-    border-radius: 12px;
-    border: 1px solid rgba(209, 213, 219, 0.3);
+    --background: rgba(0, 0, 0, 0.40) !important;
+    border-radius: 8px;
     letter-spacing: 0.4px;
 }
 
@@ -103,4 +93,7 @@ p {
     .content {
         width: 500px;
     }
+}
+p, h3 {
+    color: #fff;
 }
