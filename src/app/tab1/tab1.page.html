@@ -1,156 +1,160 @@
-<!-- <ion-header [translucent]="true">
-    <ion-toolbar>
-        <ion-title>
-            <div class="ion-margin-top">
-                <ion-col class="navbar1">World Environment</ion-col>
-            </div>
-        </ion-title>
-        <ion-icon name="qr-code"></ion-icon>
-    </ion-toolbar>
-</ion-header> -->
-
-<ion-toolbar>
-    <ion-buttons slot="secondary">
-        <ion-button (click)="startScan()">
-            <ion-icon color="light" slot="icon-only" name="qr-code"></ion-icon>
+<ion-toolbar style="margin-top: 1rem; display: flex; ">
+    <ion-buttons slot="primary" style="color: #75807d;">
+        <ion-button>
+            <ion-icon slot="icon-only" name="notifications"></ion-icon>
+        </ion-button>
+        <ion-button>
+            <ion-icon slot="icon-only" name="settings-outline"></ion-icon>
+        </ion-button>
+        <ion-button (click)="scan()">
+            <ion-icon slot="icon-only" name="qr-code"></ion-icon>
         </ion-button>
     </ion-buttons>
-    <ion-title>World Environment</ion-title>
+    <ion-title style="color:#124A3A; font-weight: 800; font-size: 22px;">Hello !</ion-title>
 </ion-toolbar>
-
-<ion-content>
-    <ion-item lines="none" style="margin: 0;">
-        <h2>Top Picks</h2>
-    </ion-item>
-    <ion-slides [options]="slideOpts">
-        <!-- <div class="slideWrap"> -->
-            <ion-slide>
-                <ion-img src="../../assets/images/30.jpg"></ion-img>
+<ion-content class="ion-no-padding">
+    <ion-grid>
+        <ion-list>
+            <ion-list-header style="color:#023224;font-weight: 800;">Keep our Earth green and clean!</ion-list-header>
+            <ion-item lines="none">
+                <ion-label style="color:#124A3A;font-weight: 800;"><b>Top Picks!</b></ion-label>
+            </ion-item>
+        </ion-list>
+        <ion-slides [options]="slideOpts" id="slides">
+            <!-- <div class="slideWrap"> -->
+            <ion-slide *ngFor="let item of product">
+                <ion-card style="text-align: left;">
+                    <div class="imgContainer">
+                        <div class="test">
+                            <ion-img [src]="item.src"></ion-img>
+                        </div>
+                    </div>
+                    <ion-card-header>
+                        <ion-card-title>{{ item.product }}</ion-card-title>
+                        <ion-card-subtitle>
+                            <ion-icon name="star" style="color:#798959;"></ion-icon>&nbsp;
+                            <span style="color:#696b79;">{{ item.rating }}</span>
+                        </ion-card-subtitle>
+                    </ion-card-header>
+                </ion-card>
             </ion-slide>
             <!-- <h2>hello</h2>
-        </div> -->
-        <ion-slide>
-            <ion-img src="../../assets/images/31.jpg"></ion-img>
-        </ion-slide>
-        <ion-slide>
-            <ion-img src="../../assets/images/32.jpg"></ion-img>
-        </ion-slide>
-        <ion-slide>
-            <ion-img src="../../assets/images/33.jpg"></ion-img>
-        </ion-slide>
-    </ion-slides>
-
-    <ion-list>
-        <ion-item style="margin: 0;" lines="none" >
-            <h2 style="margin: 0;">Products</h2>
-        </ion-item>
-        <ion-item button (click)="move(item.productId)" lines="none" *ngFor="let item of product">
-            <ion-thumbnail slot="start">
-                <ion-img [src]="item.src"></ion-img>
-            </ion-thumbnail>
-            <ion-card-header>
-                <ion-card-title>{{ item.product }}</ion-card-title>
-                <ion-card-subtitle>
-                    <ion-icon name="star" style="color:#696b79;"></ion-icon>&nbsp;
-                    <span style="color:#696b79;">{{ item.rating }}</span>
-                    <span class="dot"></span>
-                    {{ item.category }}
-                </ion-card-subtitle>
-            </ion-card-header>
-        </ion-item>
-        <!-- <ion-item lines="none">
-            <ion-thumbnail slot="start">
-                <ion-img src="../../assets/images/p2.jpg"></ion-img>
-            </ion-thumbnail>
-            <ion-card-header>
-                <ion-card-title>Samsung s10+</ion-card-title>
-                <ion-card-subtitle>
-                    <ion-icon name="star" style="color:#696b79;"></ion-icon>&nbsp;
-                    <span style="color:#696b79;">3.4</span>
-                    <span class="dot"></span>
-                    Mobile
-                </ion-card-subtitle>
-            </ion-card-header>
-        </ion-item>
-        <ion-item lines="none">
-            <ion-thumbnail slot="start">
-                <ion-img src="../../assets/images/28 - Copy.jpg"></ion-img>
-            </ion-thumbnail>
-            <ion-card-header>
-                <ion-card-title>Nestle Maggi</ion-card-title>
-                <ion-card-subtitle>
-                    <ion-icon name="star" style="color:#696b79;"></ion-icon>&nbsp;
-                    <span style="color:#696b79;">2.0</span>
-                    <span class="dot"></span>
-                    Food
-                </ion-card-subtitle>
-            </ion-card-header>
-        </ion-item>
-        <ion-item lines="none">
-            <ion-thumbnail slot="start">
-                <ion-img src="../../assets/images/27.jpg"></ion-img>
-            </ion-thumbnail>
-            <ion-card-header>
-                <ion-card-title>Vittara Brezza</ion-card-title>
-                <ion-card-subtitle>
-                    <ion-icon name="star" style="color:#696b79;"></ion-icon>&nbsp;
-                    <span style="color:#696b79;">2.8</span>
-                    <span class="dot"></span>
-                    Automobile
-                </ion-card-subtitle>
-            </ion-card-header>
-        </ion-item> -->
-    </ion-list>
+            </div> -->
+        </ion-slides>
 
 
-
-
-<!-- for scanner -->
-
-
-<!-- Fallback for iOS PWA -->
-<input #fileinput type="file" accept="image/*;capture=camera" hidden (change)="handleFile($event)">
-
- 
-<!-- Trigger the file input -->
-<ion-button expand="full" (click)="captureImage()">
-  <ion-icon slot="start" name="camera"></ion-icon>
-  Capture Image
-</ion-button>
-
-<ion-button expand="full" (click)="startScan()">
-  <ion-icon slot="start" name="qr-scanner"></ion-icon>
-  Start scan
-</ion-button>
-
-<ion-button expand="full" (click)="reset()" color="warning" *ngIf="scanResult">
-  <ion-icon slot="start" name="refresh"></ion-icon>
-  Reset
-</ion-button>
-
-<!-- Shows our camera stream -->
-<video #video [hidden]="!scanActive" width="100%"></video>
-
-<!-- Used to render the camera stream images -->
-<canvas #canvas hidden></canvas>
-
-<!-- Stop our scanner preview if active -->
-<ion-button expand="full" (click)="stopScan()" color="danger" *ngIf="scanActive">
-  <ion-icon slot="start" name="close"></ion-icon>
-  Stop scan
-</ion-button>
-
-<ion-card *ngIf="scanResult">
-  <ion-card-header>
-    <ion-card-title>QR Code</ion-card-title>
-  </ion-card-header>
-  <ion-card-content>
-    {{ scanResult }}
-  </ion-card-content>
-</ion-card>
-
-
-
-
-
+        <ion-list id="list">
+            <ion-item style="margin: 0;" lines="none">
+                <h6 style="margin: 0; font-weight: 800;">Products</h6>
+            </ion-item>
+        </ion-list>
+        <ion-row>
+            <ion-col size="12" size-sm="4" *ngFor="let item of product">
+                <ion-card style="--background: #f2f6f6 ;">
+                    <ion-row>
+                        <ion-col class="ion-padding">
+                            <img [src]="item.src" height="100%" width="100%" />
+                        </ion-col>
+                        <ion-col>
+                            <ion-card-header>
+                                <ion-card-subtitle style="color:#015557; font-weight: 800">{{ item.product }}
+                                </ion-card-subtitle>
+                                <ion-card-title style="color:#015557;font-weight: 800;">{{ item.category }}
+                                </ion-card-title>
+                            </ion-card-header>
+                            <ion-card-content style="color:#404e4e;font-weight: 800;">
+                                <!-- <ion-icon name="star"></ion-icon> &nbsp; . &nbsp;&nbsp;<b>4M</b>&nbsp;rating<br /> -->
+                                <ion-chip color="warning" style="margin-top: 1rem;">
+                                    <ion-label>Review</ion-label>
+                                </ion-chip>
+                            </ion-card-content>
+                        </ion-col>
+                        <p class="ion-padding" style="margin-top: -1rem;"> One of the motorcycles made in India is the
+                            TVS
+                            Apache
+                            RTR 200 4V.</p>
+                    </ion-row>
+                </ion-card>
+            </ion-col>
+            <!-- <ion-col size="12" size-sm="4">
+                <ion-card style="--background: #f2f6f6 ;">
+                    <ion-row>
+                        <ion-col class="ion-padding">
+                            <img src="../../assets/images/bike.jpeg" height="100%" width="100%" />
+                        </ion-col>
+                        <ion-col>
+                            <ion-card-header>
+                                <ion-card-subtitle style="color:#015557; font-weight: 800">Washing Machine
+                                </ion-card-subtitle>
+                                <ion-card-title style="color:#015557;font-weight: 800;">Machine
+                                </ion-card-title>
+                            </ion-card-header>
+                            <ion-card-content style="color:#404e4e;font-weight: 800;">
+                                <ion-icon name="star"></ion-icon> &nbsp; . &nbsp;&nbsp;<b>4M</b>&nbsp;rating<br />
+                                <ion-chip color="warning" style="margin-top: 1rem;">
+                                    <ion-label>Review</ion-label>
+                                </ion-chip>
+                            </ion-card-content>
+                        </ion-col>
+                        <p class="ion-padding" style="margin-top: -1rem;"> One of the motorcycles made in India is the
+                            TVS
+                            Apache
+                            RTR 200 4V.</p>
+                    </ion-row>
+                </ion-card>
+            </ion-col>
+            <ion-col size="12" size-sm="4">
+                <ion-card style="--background: #f2f6f6 ;">
+                    <ion-row>
+                        <ion-col class="ion-padding">
+                            <img src="../../assets/images/bike2.jpg" height="100%" width="100%" />
+                        </ion-col>
+                        <ion-col>
+                            <ion-card-header>
+                                <ion-card-subtitle style="color:#015557; font-weight: 800">Royal Enfield Continental GT
+                                </ion-card-subtitle>
+                                <ion-card-title style="color:#015557;font-weight: 800;">Bike</ion-card-title>
+                            </ion-card-header>
+                            <ion-card-content style="color:#404e4e;font-weight: 800;">
+                                 <ion-icon name="star"></ion-icon> &nbsp; . &nbsp;&nbsp;<b>4M</b>&nbsp;rating<br />
+                                <ion-chip color="warning" style="margin-top: 1rem;">
+                                    <ion-label>Review</ion-label>
+                                </ion-chip>
+                            </ion-card-content>
+                        </ion-col>
+                        <p class="ion-padding" style="margin-top: -1rem;"> One of the motorcycles made in India is the
+                            TVS
+                            Apache
+                            RTR 200 4V.</p>
+                    </ion-row>
+                </ion-card>
+            </ion-col>
+            <ion-col size="12" size-sm="4">
+                <ion-card style="--background: #f2f6f6 ;">
+                    <ion-row>
+                        <ion-col class="ion-padding">
+                            <img src="../../assets/images/car.jpg" height="100%" width="100%" />
+                        </ion-col>
+                        <ion-col>
+                            <ion-card-header>
+                                <ion-card-subtitle style="color:#015557; font-weight: 800">Royal Enfield Continental GT
+                                </ion-card-subtitle>
+                                <ion-card-title style="color:#015557;font-weight: 800;">Bike</ion-card-title>
+                            </ion-card-header>
+                            <ion-card-content style="color:#404e4e;font-weight: 800;">
+                                 <ion-icon name="star"></ion-icon> &nbsp; . &nbsp;&nbsp;<b>4M</b>&nbsp;rating<br />
+                                <ion-chip color="warning" style="margin-top: 1rem;">
+                                    <ion-label>Review</ion-label>
+                                </ion-chip>
+                            </ion-card-content>
+                        </ion-col>
+                        <p class="ion-padding" style="margin-top: -1rem;"> One of the motorcycles made in India is the
+                            TVS
+                            Apache
+                            RTR 200 4V.</p>
+                    </ion-row>
+                </ion-card>
+            </ion-col> -->
+        </ion-row>
+    </ion-grid>
 </ion-content>
