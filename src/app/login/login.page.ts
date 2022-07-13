@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { AnimationController } from '@ionic/angular';
+import { Router } from '@angular/router';
+import { ModalController } from '@ionic/angular';
+
 
 
 @Component({
@@ -9,8 +11,16 @@ import { AnimationController } from '@ionic/angular';
 })
 export class LoginPage implements OnInit {
 
-  constructor() {}
+  constructor(private router: Router,
+    private modalcontroller: ModalController) { }
 
-ismodalClosed:boolean = false
-  ngOnInit() {}
+  ismodalClosed: boolean = false
+  ngOnInit() { }
+
+
+  logIn() {
+    this.modalcontroller.dismiss();
+    this.router.navigate(['/tabs/tab1']);
+
+  }
 }

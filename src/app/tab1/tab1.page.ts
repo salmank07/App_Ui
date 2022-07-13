@@ -1,8 +1,12 @@
 import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
-import { BarcodeScanner } from '@capacitor-community/barcode-scanner';
+
 import { LoadingController, Platform, ToastController } from '@ionic/angular';
-import jsQR from 'jsqr';
-import { Event, Router } from '@angular/router';
+
+import { Router } from '@angular/router';
+
+import { BarcodeScanner } from '@awesome-cordova-plugins/barcode-scanner/ngx';
+
+
 
 
 @Component({
@@ -10,18 +14,12 @@ import { Event, Router } from '@angular/router';
   templateUrl: 'tab1.page.html',
   styleUrls: ['tab1.page.scss']
 })
-export class Tab1Page implements AfterViewInit {
+export class Tab1Page {
 
-
-
-  @ViewChild('video', { static: false }) video: ElementRef;
-  @ViewChild('canvas', { static: false }) canvas: ElementRef;
-  @ViewChild('fileinput', { static: false }) fileinput: ElementRef;
 
   slideOpts = {
     preloadImages: true,
-    spaceBetween: 10,
-    slidesPerView: 1,
+    slidesPerView: 2.2,
     speed: 500,
     autoplay: true
   };
@@ -37,22 +35,22 @@ export class Tab1Page implements AfterViewInit {
     private toastCtrl: ToastController,
     private loadingCtrl: LoadingController,
     private plt: Platform,
-    private router: Router
+    private router: Router,
+    private scanner: BarcodeScanner
+    
+    
   ) {
-    const isInStandaloneMode = () =>
-      'standalone' in window.navigator && window.navigator['standalone'];
-    if (this.plt.is('ios') && isInStandaloneMode()) {
-      console.log('I am a an iOS PWA!');
-      // E.g. hide the scan functionality!
-    }
 
+    this.scan();
 
     this.product = [
-      { productId: '1', product: 'iphone 13', category: 'mobile', rating: 4, src: '../../assets/images/26.jpg' },
-      { productId: '2', product: 'Panasonic Oven', category: 'Electronics', rating: 2, src: '../../assets/images/p2.jpg' },
-      { productId: '3', product: 'Vittara Brezza', category: 'Automobile', rating: 3, src: '../../assets/images/28 - Copy.jpg' },
-      { productId: '4', product: 'Nestle Maggi', category: 'Food', rating: 2.5, src: '../../assets/images/27.jpg' }
+      { productId: '1', product: 'iphone 13', category: 'mobile', rating: 4, src: '../../assets/images/iphone-13.jpg' },
+      { productId: '2', product: 'Panasonic Oven', category: 'Electronics', rating: 2, src: '../../assets/images/oven.jpg' },
+      { productId: '3', product: 'Vittara Brezza', category: 'Automobile', rating: 3, src: '../../assets/images/vittara.jpg' },
+      { productId: '4', product: 'Nestle Maggi', category: 'Food', rating: 2.5, src: '../../assets/images/maggi.png' },
+      { productId: '4', product: 'LG washing Machine', category: 'Home Appliance', rating: 3.5, src: '../../assets/images/washing.jpg' }
     ];
+
   }
 
   move(params: any) {
@@ -62,131 +60,42 @@ export class Tab1Page implements AfterViewInit {
   }
 
   product: any
-  ngAfterViewInit() {
-    this.canvasElement = this.canvas.nativeElement;
-    this.canvasContext = this.canvasElement.getContext('2d');
-    this.videoElement = this.video.nativeElement;
+
+  // scan() {
+  //   this.qrScanner.prepare()
+  //     .then((status: QRScannerStatus) => {
+  //       if (status.authorized) {
+  //         // camera permission was granted
+
+
+  //         // start scanning
+  //         let scanSub = this.qrScanner.scan().subscribe((text: string) => {
+  //           console.log('Scanned something', text);
+
+  //           this.qrScanner.hide(); // hide camera preview
+  //           scanSub.unsubscribe(); // stop scanning
+  //         });
+
+  //       } else if (status.denied) {
+  //         // camera permission was permanently denied
+  //         // you must use QRScanner.openSettings() method to guide the user to the settings page
+  //         // then they can grant the permission from there
+  //       } else {
+  //         // permission was denied, but not permanently. You can ask for permission again at a later time.
+  //       }
+  //     })
+  //     .catch((e: any) => console.log('Error is', e));
+  // }
+
+  scan() {
+    this.scanner.scan().then(barcodeData => {
+      console.log('Barcode data', barcodeData);
+     }).catch(err => {
+         console.log('Error', err);
+     });
   }
-
-  // Helper functions
-  async showQrToast() {
-    const toast = await this.toastCtrl.create({
-      message: `Open ${this.scanResult}?`,
-      position: 'top',
-      buttons: [
-        {
-          text: 'Open',
-          handler: () => {
-            window.open(this.scanResult, '_system', 'location=yes');
-          }
-        }
-      ]
-    });
-    toast.present();
-  }
-
-  reset() {
-    this.scanResult = null;
-  }
-
-  stopScan() {
-    this.scanActive = false;
-  }
-
-
-  async startScan() {
-    // Not working on iOS standalone mode!
-    const stream = await navigator.mediaDevices.getUserMedia({
-      video: { facingMode: 'environment' }
-    });
-
-    this.videoElement.srcObject = stream;
-    // Required for Safari
-    this.videoElement.setAttribute('playsinline', true);
-
-    this.loading = await this.loadingCtrl.create({});
-    await this.loading.present();
-
-    this.videoElement.play();
-    requestAnimationFrame(this.scan.bind(this));
-  }
-
-  async scan() {
-    if (this.videoElement.readyState === this.videoElement.HAVE_ENOUGH_DATA) {
-      if (this.loading) {
-        await this.loading.dismiss();
-        this.loading = null;
-        this.scanActive = true;
-      }
-
-      this.canvasElement.height = this.videoElement.videoHeight;
-      this.canvasElement.width = this.videoElement.videoWidth;
-
-      this.canvasContext.drawImage(
-        this.videoElement,
-        0,
-        0,
-        this.canvasElement.width,
-        this.canvasElement.height
-      );
-      const imageData = this.canvasContext.getImageData(
-        0,
-        0,
-        this.canvasElement.width,
-        this.canvasElement.height
-      );
-      const code = jsQR(imageData.data, imageData.width, imageData.height, {
-        inversionAttempts: 'dontInvert'
-      });
-
-      if (code) {
-        this.scanActive = false;
-        this.scanResult = code.data;
-        this.showQrToast();
-      } else {
-        if (this.scanActive) {
-          requestAnimationFrame(this.scan.bind(this));
-        }
-      }
-    } else {
-      requestAnimationFrame(this.scan.bind(this));
-    }
-  }
-
-
-  captureImage() {
-    this.fileinput.nativeElement.click();
-  }
-
-  handleFile(ev: any) {
-    const file = ev.target.files.item(0);
-
-
-    var img = new Image();
-    img.onload = () => {
-      this.canvasContext.drawImage(img, 0, 0, this.canvasElement.width, this.canvasElement.height);
-      const imageData = this.canvasContext.getImageData(
-        0,
-        0,
-        this.canvasElement.width,
-        this.canvasElement.height
-      );
-      const code = jsQR(imageData.data, imageData.width, imageData.height, {
-        inversionAttempts: 'dontInvert'
-      });
-
-      if (code) {
-        this.scanResult = code.data;
-        this.showQrToast();
-      }
-    };
-    img.src = URL.createObjectURL(file);
-  }
-
 
 
 
 
 }
-
-

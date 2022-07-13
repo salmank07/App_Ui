@@ -1,6 +1,8 @@
 .main {
     // background: url(../../assets/images/25.png) no-repeat center center fixed;
-    --background: linear-gradient(#002328, #f0f9f9);
+    // --background: linear-gradient(#002328, #f0f9f9);
+    --background: linear-gradient(#58967f, #f0f9f9);
+    // 58967f
     // --background: #f0f9f9;
     // --background: #a8d4d7;
     -webkit-background-size: cover;
@@ -12,7 +14,8 @@
     position: relative;
 }
 ion-text {
-    color: #fbfbfb;
+    // color: #fbfbfb;
+    color: #000b05;
 }
 h1 {
     font-size: 28px;
