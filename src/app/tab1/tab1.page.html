@@ -6,7 +6,7 @@
         <ion-button>
             <ion-icon slot="icon-only" name="settings-outline"></ion-icon>
         </ion-button>
-        <ion-button (click)="scan()" >
+        <ion-button (click)="scan()">
             <ion-icon slot="icon-only" name="qr-code"></ion-icon>
         </ion-button>
     </ion-buttons>
@@ -21,7 +21,6 @@
             </ion-item>
         </ion-list>
         <ion-slides [options]="slideOpts" id="slides">
-            <!-- <div class="slideWrap"> -->
             <ion-slide *ngFor="let item of product">
                 <ion-card style="text-align: left;">
                     <div class="imgContainer">
@@ -38,10 +37,7 @@
                     </ion-card-header>
                 </ion-card>
             </ion-slide>
-            <!-- <h2>hello</h2>
-            </div> -->
         </ion-slides>
-
 
         <ion-list id="list">
             <ion-item style="margin: 0;" lines="none">
@@ -50,29 +46,32 @@
         </ion-list>
         <ion-row>
             <ion-col size="12" size-sm="4" *ngFor="let item of product">
-                <ion-card style="--background: #f2f6f6 ;">
+                <ion-card class="ion-padding" style="--background: #f2f6f6 ;">
                     <ion-row>
-                        <ion-col class="ion-padding">
-                            <img [src]="item.src" height="100%" width="100%" />
-                        </ion-col>
                         <ion-col>
+                            <div class="imageContainer">
+                                <ion-img [src]="item.src" height="100%" width="100%"></ion-img>
+                            </div>
+                        </ion-col>
+                        <ion-col class="wrap">
                             <ion-card-header>
-                                <ion-card-subtitle style="color:#015557; font-weight: 800">{{ item.product }}
+                                <ion-card-subtitle style="color:#015557; font-weight: 800">{{ item.category }}
                                 </ion-card-subtitle>
-                                <ion-card-title style="color:#015557;font-weight: 800;">{{ item.category }}
+                                <ion-card-title style="color:#015557;font-weight: 800;">{{ item.product }}<br />
+                                    <ion-chip color="warning">
+                                        <ion-icon name="star"></ion-icon>
+                                        <ion-label>{{ item.rating }}</ion-label>
+                                    </ion-chip>
                                 </ion-card-title>
                             </ion-card-header>
-                            <ion-card-content style="color:#404e4e;font-weight: 800;">
-                                <!-- <ion-icon name="star"></ion-icon> &nbsp; . &nbsp;&nbsp;<b>4M</b>&nbsp;rating<br /> -->
-                                <ion-chip color="warning" style="margin-top: 1rem;">
-                                    <ion-label>Review</ion-label>
-                                </ion-chip>
-                            </ion-card-content>
                         </ion-col>
-                        <p class="ion-padding" style="margin-top: -1rem;"> One of the motorcycles made in India is the
-                            TVS
-                            Apache
-                            RTR 200 4V.</p>
+                        <ion-card-content>
+                            <p> One of the motorcycles made in India is
+                                the
+                                TVS
+                                Apache
+                                RTR 200 4V.</p>
+                        </ion-card-content>
                     </ion-row>
                 </ion-card>
             </ion-col>
