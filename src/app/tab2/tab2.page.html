@@ -1,111 +1,111 @@
 <ion-toolbar>
-  <ion-buttons slot="secondary">
-      <ion-button>
-          <ion-icon slot="icon-only" name="qr-code"></ion-icon>
-      </ion-button>
-  </ion-buttons>
-  <ion-title>World Environment</ion-title>
+  <ion-item lines="none">
+    <ion-icon slot="end" name="home"></ion-icon>
+    <ion-label style="color: grey; font-weight: 800; display: flex;">RATING</ion-label>
+  </ion-item>
 </ion-toolbar>
-<ion-content [fullscreen]="true" class="ion-padding">
-  
-    <ion-card-header>
-      <ion-card-title style="text-align: center; font-weight: 600; ">Product Reviews</ion-card-title>
-    </ion-card-header>
+<ion-content>
+  <div id="productCard" class="ion-no-padding">
+    <img [src]="gotit.src" width="100%" height="100%" />
     <ion-card-content>
-      <div class="chipWrap">
-        <ion-chip>
-          <ion-icon name="star"></ion-icon>
-          <ion-icon name="star"></ion-icon>
-          <ion-icon name="star"></ion-icon>
-          <ion-icon name="star-half-outline"></ion-icon>
-          <ion-icon name="star-outline"></ion-icon>
-          <ion-label style="margin: 8px; white-space: nowrap;">{{ gotit }} out of 5</ion-label>
-        </ion-chip>
-      </div>
-      <!-- <h5 style="text-align: center;">40 customer review</h5> -->
-      <div class="wrap">
 
-        <div class="prog">
-          <p style="padding-right: 10px; color: #748DDF;">5 star</p>
-          <ion-progress-bar value="0.84"></ion-progress-bar>
-          <p style="text-align: right; color: #3D3D54;">84%</p>
-        </div>
+      <ion-item lines="none">
+        <ion-label class="productTitle ion-no-margin">
+          {{ gotit.product }} <br /><span>{{ gotit.category }}</span>
+        </ion-label>
+        <ion-label slot="end">
+          <ion-icon name="star"></ion-icon>{{ gotit.rating }}
+        </ion-label>
+      </ion-item>
+      <ion-item lines="none">
+        <ion-label>
+          Ingridients: &nbsp; <span>Aloe Vera</span>
+        </ion-label>
+      </ion-item>
 
-        <div class="prog">
-          <p style="padding-right: 10px; color: #748DDF;">4 star</p>
-          <ion-progress-bar value="0.15"></ion-progress-bar>
-          <p style="padding-left: 10px; color: #3D3D54;">15%</p>
-        </div>
-
-        <div class="prog">
-          <p style="padding-right: 10px; color: #748DDF;">3 star</p>
-          <ion-progress-bar value="0.1"></ion-progress-bar>
-          <p style="padding-left: 10px; color: #3D3D54;">10%</p>
-        </div>
-
-        <div class="prog">
-          <p style="padding-right: 10px; color: #748DDF;">2 star</p>
-          <ion-progress-bar value="0.05"></ion-progress-bar>
-          <p style="padding-left: 10px; color: #3D3D54;"> 5%</p>
-        </div>
-
-        <div class="prog">
-          <p style="padding-right: 10px; color: #748DDF;">1 star</p>
-          <ion-progress-bar value="0.18"></ion-progress-bar>
-          <p style="padding-left: 10px; color: #3D3D54;">18%</p>
-        </div>
-      </div>
       <div class="chipWrap" style="margin-top: 1rem;">
         <div class="fortext">
           <div class="progWrap">
-            <div class="current">3.5</div>
-            <round-progress [color]="'#2dd36f'" [background]="'#ECF1FF'" [current]="3.5" [max]="5" [radius]="125"
+            <div class="current">{{ gotit.global }}</div>
+            <round-progress [color]="'#015557'" [background]="'#ECF1FF'" [current]="gotit.global" [max]="5" [radius]="125"
               [stroke]="20" [rounded]="true" [clockwise]="false" [responsive]="false" [duration]="800"
               [animation]="'easeInOutQuart'" [animationDelay]="0">
             </round-progress>
           </div>
           <h5 style="text-align: center;">
-            Quality
+            Global<br />Index
           </h5>
         </div>
         <div class="fortext">
           <div class="progWrap">
-            <div class="current">2.5</div>
-            <round-progress [color]="'#2dd36f'" [background]="'#ECF1FF'" [current]="2.5" [max]="5" [radius]="125"
+            <div class="current">{{ gotit.global }}</div>
+            <round-progress [color]="'#015557'" [background]="'#ECF1FF'" [current]="gotit.local" [max]="5" [radius]="125"
               [stroke]="20" [rounded]="true" [clockwise]="false" [responsive]="false" [duration]="800"
               [animation]="'easeInOutQuart'" [animationDelay]="0">
             </round-progress>
           </div>
           <h5 style="text-align: center;">
-            Camera
+            Local<br />Index
           </h5>
         </div>
         <div class="fortext">
           <div class="progWrap">
-            <div class="current">4</div>
-            <round-progress [color]="'#2dd36f'" [background]="'#ECF1FF'" [current]="4" [max]="5" [radius]="125"
+            <div class="current">{{ gotit.lifestyle }}</div>
+            <round-progress [color]="'#015557'" [background]="'#ECF1FF'" [current]="gotit.lifestyle" [max]="5" [radius]="125"
               [stroke]="20" [rounded]="true" [clockwise]="false" [responsive]="false" [duration]="800"
               [animation]="'easeInOutQuart'" [animationDelay]="0">
             </round-progress>
           </div>
-          <h5 style="text-align: center;">
-            Design
-          </h5>
-        </div>
-        <div class="fortext">
-          <div class="progWrap">
-            <div class="current">2</div>
-            <round-progress [color]="'#2dd36f'" [background]="'#ECF1FF'" [current]="2" [max]="5" [radius]="125"
-              [stroke]="20" [rounded]="true" [clockwise]="false" [responsive]="false" [duration]="800"
-              [animation]="'easeInOutQuart'" [animationDelay]="0">
-            </round-progress>
-          </div>
-          <h5 style="text-align: center;">
-            Bass
-          </h5>
+          <h6 style="text-align: center;">
+            Your Lifestyle<br />Rate
+          </h6>
         </div>
       </div>
-    </ion-card-content>
-  
 
+      <ion-grid>
+        <ion-row>
+          <ion-col class="rating">
+            <div>
+              <h1>{{gotit.rating}}<span> / 5</span></h1>
+              <ion-item lines="none">
+                <ion-icon name="star"></ion-icon>
+                <ion-icon name="star"></ion-icon>
+                <ion-icon name="star"></ion-icon>
+                <ion-icon name="star"></ion-icon>
+                <ion-icon name="star"></ion-icon>
+              </ion-item>
+            </div>
+          </ion-col>
+          <ion-col>
+            <div class="wrap">
+              <div class="prog">
+                <p style="padding-right: 10px;">5 star</p>
+                <ion-progress-bar [value]="gotit.percent.star5"></ion-progress-bar>
+              </div>
+
+              <div class="prog">
+                <p style="padding-right: 10px;">4 star</p>
+                <ion-progress-bar [value]="gotit.percent.star4"></ion-progress-bar>
+              </div>
+
+              <div class="prog">
+                <p style="padding-right: 10px;">3 star</p>
+                <ion-progress-bar [value]="gotit.percent.star3"></ion-progress-bar>
+              </div>
+
+              <div class="prog">
+                <p style="padding-right: 10px;">2 star</p>
+                <ion-progress-bar [value]="gotit.percent.star2"></ion-progress-bar>
+              </div>
+
+              <div class="prog">
+                <p style="padding-right: 10px;">1 star</p>
+                <ion-progress-bar [value]="gotit.percent.star1"></ion-progress-bar>
+              </div>
+            </div>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+  </div>
 </ion-content>

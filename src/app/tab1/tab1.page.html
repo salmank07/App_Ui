@@ -45,7 +45,7 @@
             </ion-item>
         </ion-list>
         <ion-row>
-            <ion-col size="12" size-sm="4" *ngFor="let item of product">
+            <ion-col (click)="move(item.productId)" size="12" size-sm="4" *ngFor="let item of product">
                 <ion-card class="ion-padding" style="--background: #f2f6f6 ;">
                     <ion-row>
                         <ion-col>
