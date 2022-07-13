@@ -4,12 +4,12 @@
       <h1>Hello Again!</h1>
       <h6>Welcome back you've been missed!</h6>
     </ion-text>
-    <div class="bottom">
+    <!-- <div class="bottom">
       <ion-button id="open-modal1" expand="block" *ngIf="!ismodalClosed">
         Sign in
       </ion-button>
-    </div>
-    <ion-modal #modal (willPresent)='ismodalClosed = !ismodalClosed' canDismiss="false" show-backdrop="false"
+    </div> -->
+    <ion-modal [isOpen]="true" canDismiss="true" show-backdrop="false"
       trigger="open-modal1" [initialBreakpoint]="0.75">
       <ng-template>
 
@@ -35,7 +35,7 @@
               Recover Password
             </p>
 
-            <ion-button style="margin-top: 1rem;" expand="block"><b>Sign In</b></ion-button>
+            <ion-button style="margin-top: 1rem;" (click)="logIn()" expand="block"><b>Sign In</b></ion-button>
             <p style="font-size: 13px; text-align: center !important;color: #002328;font-weight: 800; "><b>Or</b>
               continue with</p>
             <div style="display: flex; align-items: center; justify-content: space-around;">

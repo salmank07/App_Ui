@@ -6,8 +6,10 @@ import { Tab1Page } from './tab1.page';
 import { ExploreContainerComponentModule } from '../explore-container/explore-container.module';
 
 import { Tab1PageRoutingModule } from './tab1-routing.module';
-import { QRScanner } from '@ionic-native/qr-scanner/ngx';
+
 import { BarcodeScanner } from '@awesome-cordova-plugins/barcode-scanner/ngx';
+
+
 
 
 @NgModule({
@@ -19,6 +21,6 @@ import { BarcodeScanner } from '@awesome-cordova-plugins/barcode-scanner/ngx';
     Tab1PageRoutingModule
   ],
   declarations: [Tab1Page],
-  providers: [BarcodeScanner, QRScanner]
+  providers: [BarcodeScanner]
 })
 export class Tab1PageModule {}

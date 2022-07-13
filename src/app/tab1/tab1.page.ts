@@ -1,9 +1,10 @@
 import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
-import { BarcodeScanner } from '@capacitor-community/barcode-scanner';
+
 import { LoadingController, Platform, ToastController } from '@ionic/angular';
-import jsQR from 'jsqr';
-import { Event, Router } from '@angular/router';
-import { QRScanner, QRScannerStatus } from '@ionic-native/qr-scanner/ngx';
+
+import { Router } from '@angular/router';
+
+import { BarcodeScanner } from '@awesome-cordova-plugins/barcode-scanner/ngx';
 
 
 
@@ -35,21 +36,12 @@ export class Tab1Page {
     private loadingCtrl: LoadingController,
     private plt: Platform,
     private router: Router,
-    private qrScanner: QRScanner
+    private scanner: BarcodeScanner
+    
+    
   ) {
 
-
     this.scan();
-
-
-
-    const isInStandaloneMode = () =>
-      'standalone' in window.navigator && window.navigator['standalone'];
-    if (this.plt.is('ios') && isInStandaloneMode()) {
-      console.log('I am a an iOS PWA!');
-      // E.g. hide the scan functionality!
-    }
-
 
     this.product = [
       { productId: '1', product: 'iphone 13', category: 'mobile', rating: 4, src: '../../assets/images/iphone-13.jpg' },
@@ -58,6 +50,7 @@ export class Tab1Page {
       { productId: '4', product: 'Nestle Maggi', category: 'Food', rating: 2.5, src: '../../assets/images/maggi.png' },
       { productId: '4', product: 'LG washing Machine', category: 'Home Appliance', rating: 3.5, src: '../../assets/images/washing.jpg' }
     ];
+
   }
 
   move(params: any) {
@@ -68,31 +61,39 @@ export class Tab1Page {
 
   product: any
 
-  scan(){
-    this.qrScanner.prepare()
-  .then((status: QRScannerStatus) => {
-     if (status.authorized) {
-       // camera permission was granted
+  // scan() {
+  //   this.qrScanner.prepare()
+  //     .then((status: QRScannerStatus) => {
+  //       if (status.authorized) {
+  //         // camera permission was granted
 
 
-       // start scanning
-       let scanSub = this.qrScanner.scan().subscribe((text: string) => {
-         console.log('Scanned something', text);
+  //         // start scanning
+  //         let scanSub = this.qrScanner.scan().subscribe((text: string) => {
+  //           console.log('Scanned something', text);
 
-         this.qrScanner.hide(); // hide camera preview
-         scanSub.unsubscribe(); // stop scanning
-       });
+  //           this.qrScanner.hide(); // hide camera preview
+  //           scanSub.unsubscribe(); // stop scanning
+  //         });
 
-     } else if (status.denied) {
-       // camera permission was permanently denied
-       // you must use QRScanner.openSettings() method to guide the user to the settings page
-       // then they can grant the permission from there
-     } else {
-       // permission was denied, but not permanently. You can ask for permission again at a later time.
-     }
-  })
-  .catch((e: any) => console.log('Error is', e));
-}
+  //       } else if (status.denied) {
+  //         // camera permission was permanently denied
+  //         // you must use QRScanner.openSettings() method to guide the user to the settings page
+  //         // then they can grant the permission from there
+  //       } else {
+  //         // permission was denied, but not permanently. You can ask for permission again at a later time.
+  //       }
+  //     })
+  //     .catch((e: any) => console.log('Error is', e));
+  // }
+
+  scan() {
+    this.scanner.scan().then(barcodeData => {
+      console.log('Barcode data', barcodeData);
+     }).catch(err => {
+         console.log('Error', err);
+     });
+  }
 
 
 
