@@ -14,11 +14,12 @@ export class LoginPage implements OnInit {
   constructor(
     private router: Router,
     private modalcontroller: ModalController
-  ) {
-    console.log(this.isModalCanDismiss, "kjhhhkhj")
-   }
+  ) { 
+    console.log(this.isModalCanDismiss, "jhjhjhjhj")
+  }
 
-  isModalCanDismiss: boolean = false;
+  isModalCanDismiss: boolean;
+  isopen: boolean = true;
 
   ngOnInit() { }
 
@@ -28,5 +29,15 @@ export class LoginPage implements OnInit {
     this.modalcontroller.dismiss();
     this.router.navigate(['/tabs/tab1']);
   }
+  ondismiss() {
+    this.isModalCanDismiss = !this.isModalCanDismiss;
+    this.isopen = !this.isopen;
+  }
+  present() {
+    this.isopen = !this.isopen
+
+  }
+
+  
 }
 

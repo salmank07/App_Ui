@@ -102,8 +102,10 @@ p {
     padding: 8px 0;
 }
 
-.bottom ion-button {
+.bottom {
     position: absolute;
+    width: 90%;
+    
     bottom: 20%;
 }
 .content {
