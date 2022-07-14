@@ -1,59 +1,45 @@
-ion-chip {
-    position: relative;
-    height: 60px;
-    --background: #fff;
-}
-
-ion-card {
-    border-radius: 20px;
-    box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
-}
-
-ion-icon {
-    position: relative;
-    font-size: 30px;
-    margin: 8px 6px;
-    color: #F7C766;
-}
-
-ion-content {
-    --background: #ECF1FF;
+#productCard {
+    border-radius: 1rem;
+    background: #fff;
 }
 
 ion-progress-bar {
-    display: table-cell;
-    height: 10px;
+    height: 6px;
     border-radius: 20px;
     --background: #fff;
-    --progress-background: #FE9F17;
+    --progress-background: #015557;
 }
-
-.wrap {
-    margin-top: 1.5rem;
-    display: table;
-    border-collapse: separate;
-    border-spacing: 0 10px;
+.wrap p {
+    white-space: nowrap;
+    text-align: right;
 }
-
 .prog {
-    display: table-row;
+    display: flex;
     align-items: center;
-    justify-content: center;
 }
-
-.chipWrap {
+.rating {
     display: flex;
     align-items: center;
     justify-content: center;
 }
-
-p {
-    display: table-cell;
-    text-align: right;
-    white-space: nowrap;
-    // color: #748DDF;
+.rating ion-item { 
+    --background: transparent;
+} 
+#productCard ion-icon {
+    font-size: 16px;
+    padding: 0 3px;
+    color: #fe9f17;
+    
 }
-
+#productCard ion-item {
+    --padding-start: 0px;
+}
+.chipWrap {
+    margin: 10px 0 15px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
 round-progress {
     height: 60px !important;
     width: 60px !important;
@@ -77,15 +63,23 @@ round-progress {
     font-weight: 100;
     line-height: 1;
 }
-ion-toolbar {
-    --border-color: $primary-text-color;
-    --min-height: 60px;
-  }
-  ion-toolbar ion-icon {
-    color: #3d4152;
-  }
-  ion-title {
-    color: #3d4152;
-    font-weight: 700;
-    letter-spacing: -0.1px;
-  }
+.productTitle {
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 1.35;
+}
+span {
+    color: rgb(115, 115, 115);
+    font-weight: 500;
+    font-size: 14px;
+}
+h6 {
+    font-size: 13px;
+    font-weight: 500;
+}
+ion-grid {
+    border-radius: 1rem;
+    padding: 12px;
+    background: #f2f6f6;
+    margin-top: 2rem;
+}

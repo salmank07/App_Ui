@@ -62,7 +62,9 @@ export class Tab1Page {
 
   scan() {
     this.scanner.scan().then(barcodeData => {
-      console.log('Barcode data', barcodeData);
+      if (barcodeData == this.product.productId) {
+        this.move(barcodeData);
+      }
     }).catch(err => {
       console.log('Error', err);
     });
