@@ -9,37 +9,45 @@ ion-progress-bar {
     --background: #fff;
     --progress-background: #015557;
 }
+
 .wrap p {
     white-space: nowrap;
     text-align: right;
 }
+
 .prog {
     display: flex;
     align-items: center;
 }
+
 .rating {
     display: flex;
     align-items: center;
     justify-content: center;
 }
-.rating ion-item { 
+
+.rating ion-item {
     --background: transparent;
-} 
+}
+
 #productCard ion-icon {
     font-size: 16px;
     padding: 0 3px;
     color: #fe9f17;
-    
+
 }
+
 #productCard ion-item {
     --padding-start: 0px;
 }
+
 .chipWrap {
     margin: 10px 0 15px 0;
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
+
 round-progress {
     height: 60px !important;
     width: 60px !important;
@@ -63,23 +71,45 @@ round-progress {
     font-weight: 100;
     line-height: 1;
 }
+
 .productTitle {
     font-weight: 500;
     font-size: 20px;
     line-height: 1.35;
 }
+
 span {
     color: rgb(115, 115, 115);
     font-weight: 500;
     font-size: 14px;
 }
+
 h6 {
     font-size: 13px;
     font-weight: 500;
 }
+
 ion-grid {
     border-radius: 1rem;
     padding: 12px;
     background: #f2f6f6;
     margin-top: 2rem;
+}
+
+.imgwrap {
+    position: relative;
+    height: 300px;
+    width: 100%;
+}
+
+.imgwrap img {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: 0;
+    margin: auto;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
 }
