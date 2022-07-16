@@ -1,4 +1,5 @@
-<ion-toolbar style="margin-top: 1rem; display: flex; ">
+<ion-toolbar>
+    <ion-title style="text-align: left; color:#124A3A; font-weight: 800; font-size: 22px;">Hello !</ion-title>
     <ion-buttons slot="primary" style="color: #75807d;">
         <ion-button>
             <ion-icon slot="icon-only" name="notifications"></ion-icon>
@@ -10,7 +11,6 @@
             <ion-icon slot="icon-only" name="qr-code"></ion-icon>
         </ion-button>
     </ion-buttons>
-    <ion-title style="color:#124A3A; font-weight: 800; font-size: 22px;">Hello !</ion-title>
 </ion-toolbar>
 <ion-content class="ion-no-padding">
     <ion-grid>
@@ -21,7 +21,7 @@
             </ion-item>
         </ion-list>
         <ion-slides [options]="slideOpts" id="slides">
-            <ion-slide *ngFor="let item of product">
+            <ion-slide *ngFor="let item of products">
                 <ion-card style="text-align: left;">
                     <div class="imgContainer">
                         <div class="test">
@@ -45,7 +45,7 @@
             </ion-item>
         </ion-list>
         <ion-row>
-            <ion-col (click)="move(item.productId)" size="12" size-sm="4" *ngFor="let item of product">
+            <ion-col (click)="move(item.productId)" size="12" size-sm="4" *ngFor="let item of products">
                 <ion-card class="ion-padding" style="--background: #f2f6f6 ;">
                     <ion-row>
                         <ion-col>

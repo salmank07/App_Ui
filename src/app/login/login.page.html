@@ -4,14 +4,15 @@
       <h1>Hello Again!</h1>
       <h6>Welcome back you've been missed!</h6>
     </ion-text>
-    <!-- <div class="bottom">
-      <ion-button id="open-modal1" expand="block" *ngIf="!ismodalClosed">
+    <div class="bottom">
+      <ion-button id="open-that" (click)="isopen = !isopen" expand="block" *ngIf="!isopen">
         Sign in
       </ion-button>
-    </div> -->
-    <!-- <ion-modal isOpen="true" [canDismiss]="isModalCanDismiss" (ionModalWillDismiss)="isModalCanDismiss = !isModalCanDismiss"	 show-backdrop="false"
-      trigger="open-modal1" [initialBreakpoint]="0.75"> -->
-    <ion-modal isOpen="true" show-backdrop="false" trigger="open-modal1" [initialBreakpoint]="0.75">
+    </div>
+    <ion-modal [isOpen]="isopen"
+      (ionModalDidDismiss)="isopen = !isopen"  show-backdrop="false" trigger="open-modal1"
+      [initialBreakpoint]="0.75">
+      <!-- <ion-modal isOpen="true" show-backdrop="false" trigger="open-modal1" [initialBreakpoint]="0.75"> -->
       <ng-template>
         <ion-content class="mainContent modal-content ion-padding">
           <div class="wrap" style="margin-top: 2rem;">
